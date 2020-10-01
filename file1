@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Change {
+    private static int getChange(int m) {
+        // write your code here
+        if (m == 0)
+            return 0;
+        int numberOfCoins = 0;
+        while (true) {
+            if (10 <= m) {
+                m -= 10;
+            } else {
+                if (5 <= m) {
+                    m -= 5;
+                } else {
+                    m -= 1;
+                }
+            }
+            numberOfCoins++;
+            if (m <= 0)
+                return numberOfCoins;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int m = scanner.nextInt();
+        System.out.println(getChange(m));
+        scanner.close();
+    }
+}
